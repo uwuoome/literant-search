@@ -9,10 +9,20 @@ Empty slots are represented by spaces, capitalized letters denote placed letters
 The second argument, letters, is an upper-case string containing letters in the AI player's rack. For blank letters, use underscores.  
 <code>aiFindMove(board, letters)</code>
 
+<pre>
+import {aiInit, aiFindMove} from 'literant-search'
+
+const wordList =  [
+  'CACTUS', 'CAN', 'CANNOT', 'CART', 'CAT', 'CATABOLIC', 'CATNIP', 'CATTIEST', 'CONCATENATE', 'CONCRETE', 
+  'DINGLEBERRY', 'DODGE', 'DODGY', 'DOG', 'DOGGIEST', 'DOGGY', 'DOGS', 'DONATE', 'DOUBLE', 'DOUBT', 'DUCT'
+];
+const board = Array(225).fill(" ");
+aiInit(wordList, {compress: true, debug: 0});
+const move = aiFindMove(board, "IYDETDOG");
+console.log(move);
+</pre>
+
 Return value is an object with the following attributes:
 <pre>
-pos: 0...223 (one dimensional index). 
-dir: "a" | "d" (across or down)
-word: string  (word to place)
-score: number
+{ pos: 112, dir: 'a', word: 'DODGY', score: 30 }
 </pre>

@@ -16,10 +16,19 @@ export function chunkByColumns(array, n) {
 
 export function stepTimer(){
   let lastTime = Date.now();
-  return () => {
+  return (msg=null) => {
     const thisTime = Date.now();
     const delta = thisTime - lastTime;
     lastTime = thisTime;
+    if(msg) console.log(msg, ":", delta, "ms");
     return delta;
   }
+}
+
+export function place(board, toPlace){
+  const inc = toPlace.dir == "a"? 1: 15;
+  toPlace.word.split("").forEach((ch, i) => {
+    board[toPlace.pos+(i*inc)] = ch;
+  });
+  return board;
 }

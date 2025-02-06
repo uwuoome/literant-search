@@ -1,6 +1,6 @@
 {
   "name": "literant-search",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Efficient searches for high scoring words on a Scrabble-like board using either a Trie or compressed DAWG.",
   "main": "ai.js",
   "scripts": {
